@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
+
+/* Apply modern font and base styles */
+body {
+  font-family: "Outfit", sans-serif !important;
+  background-color: #0f172a;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(59, 130, 246, 0.08) 1px,
+    transparent 0
+  );
+  background-size: 40px 40px;
+  overflow-x: hidden;
+}
+
+/* Page Entry Keyframes */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* Smooth entry animation for the main contact section */
+section#contact {
+  animation: pageFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered container load */
+section#contact .grid > div:first-child {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+section#contact .grid > div:last-child {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.25s;
+  opacity: 0;
+}
+
+/* Glassmorphism card premium design */
+.glass {
+  background: rgba(15, 23, 42, 0.55) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass:hover {
+  border-color: rgba(59, 130, 246, 0.25) !important;
+  box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.15) !important;
+  transform: translateY(-3px);
+}
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.7),
+    rgba(15, 23, 42, 0.85)
+  ) !important;
+  border: 1px solid rgba(59, 130, 246, 0.15) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  opacity: 0;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.glass-card:nth-child(1) {
+  animation-delay: 0.35s;
+}
+
+.glass-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.glass-card:hover {
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Form and inputs styling */
+#contactForm input,
+#contactForm textarea {
+  background-color: rgba(15, 23, 42, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+  transform: translateY(-1px);
+}
+
+/* Submit Button Hover Glow */
+#contactForm button[type="submit"] {
+  background: linear-gradient(135deg, #2563eb, #0891b2) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2) !important;
+}
+
+#contactForm button[type="submit"]:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4) !important;
+  background: linear-gradient(135deg, #1d4ed8, #0e7490) !important;
+}
+
+/* FAQ Hover and Chevron Speed */
+.glass[onclick^="toggleFaq"] {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass[onclick^="toggleFaq"]:hover {
+  border-color: rgba(59, 130, 246, 0.35) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15) !important;
+}
+
+.glass[onclick^="toggleFaq"] i {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Pulse animation on Live Chat icon background */
+.glass-card .rounded-full {
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover .rounded-full {
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+/* Custom glow element behind main form */
+section#contact .grid > div:last-child {
+  position: relative;
+}
+
+section#contact .grid > div:last-child::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.08) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Success state slide-up and fade-in */
+#successState {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
