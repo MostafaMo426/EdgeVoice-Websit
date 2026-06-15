@@ -341,7 +341,9 @@ window.addEventListener("click", (e) => {
 });
 
 // API Configuration
-const API_BASE_URL = "http://asmaaelamir-001-site1.site4future.com";
+const API_BASE_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:")
+  ? "http://asmaaelamir-001-site1.site4future.com"
+  : "";
 
 // Submit Checkout to API
 async function submitCheckoutToAPI(formData) {
